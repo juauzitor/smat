@@ -43,6 +43,7 @@ public class WorkFrequencyRepositoryImpl implements WorkFrequencyRepository {
     public void updateT(WorkFrequency workFrequency) {
         if (this.jpaWorkFrequencyRepository.existsById(workFrequency.getWorkFrequencyId())){
             JpaWorkFrequencyEntity workFrequencyEntity = new JpaWorkFrequencyEntity(workFrequency);
+            this.jpaWorkFrequencyRepository.save(workFrequencyEntity);
         } else {
             throw new RuntimeException("WorkFrequency not found with id: " + workFrequency.getWorkFrequencyId().toString());
         }

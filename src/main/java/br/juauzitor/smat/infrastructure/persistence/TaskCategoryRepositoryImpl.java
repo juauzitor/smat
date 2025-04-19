@@ -43,6 +43,7 @@ public class TaskCategoryRepositoryImpl implements TaskCategoryRepository {
     public void updateT(TaskCategory taskCategory) {
         if (this.jpaTaskCategoryRepository.existsById(taskCategory.getTaskCategoryId())){
             JpaTaskCategoryEntity taskCategoryEntity = new JpaTaskCategoryEntity(taskCategory);
+            this.jpaTaskCategoryRepository.save(taskCategoryEntity);
         } else {
             throw new RuntimeException("TaskCategory not found with id: " + taskCategory.getTaskCategoryId().toString());
         }
