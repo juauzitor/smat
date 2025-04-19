@@ -2,10 +2,7 @@ package br.juauzitor.smat.infrastructure.persistence.entities;
 
 
 import br.juauzitor.smat.domain.model.Company;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -14,8 +11,10 @@ import java.util.UUID;
 public class JpaCompanyEntity {
     @Id
     @GeneratedValue
+    @Column(name = "company_id", columnDefinition = "UUID")
     private UUID companyId;
 
+    @Column(name = "company_name")
     private String companyName;
 
     public JpaCompanyEntity() {

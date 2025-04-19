@@ -1,10 +1,7 @@
 package br.juauzitor.smat.infrastructure.persistence.entities;
 
 import br.juauzitor.smat.domain.model.WorkFrequency;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -15,9 +12,13 @@ public class JpaWorkFrequencyEntity {
 
     @Id
     @GeneratedValue
+    @Column(name = "work_frequency_id")
     private UUID workFrequencyId;
 
+    @Column(name = "start_Work_Frequency")
     private LocalDateTime startWorkFrequency;
+
+    @Column(name = "end_Work_Frequency")
     private LocalDateTime endWorkFrequency;
 
     public JpaWorkFrequencyEntity() {

@@ -1,10 +1,7 @@
 package br.juauzitor.smat.infrastructure.persistence.entities;
 
 import br.juauzitor.smat.domain.model.TaskCategory;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -13,8 +10,10 @@ import java.util.UUID;
 public class JpaTaskCategoryEntity {
     @Id
     @GeneratedValue
+    @Column(name = "task_category_id", columnDefinition = "UUID")
     private UUID taskCategoryId;
 
+    @Column(name = "category_name")
     private String categoryName;
 
     public JpaTaskCategoryEntity() {
